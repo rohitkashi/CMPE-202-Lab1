@@ -36,6 +36,8 @@ class GumballMachine:
 # Gumball Machine One
 class GumballMachineOne ( GumballMachine ):
 
+      return_value = 0
+
       def __init__ (self):
           GumballMachine.__init__(self)
           self.single_gumball_cost = 25 # In Cents
@@ -43,6 +45,7 @@ class GumballMachineOne ( GumballMachine ):
           print ("GUMBALL MACHINE ONE:")
           print ("Each Gumball Costs 25 Cents, Accepted Currency: 25 Cents Only.")
           print "Number Of Gumballs Available: " + str( self.number_of_gumballs_available )
+          print return_value
           
 
       def insert_coins (self, inserted_single_coin_value):
@@ -160,6 +163,8 @@ class GumballMachineTwo(GumballMachine):
 
 class GumballMachineThree ( GumballMachine) : 
 
+      return_value = 0 
+
       def __init__( self ):
           GumballMachine.__init__(self)
           self.single_gumball_cost = 50 # 50 Cents
@@ -263,159 +268,163 @@ class GumballMachineThree ( GumballMachine) :
           else: self.eject_coins()
 
 
-# GUMBALL MACHINE ONE 
-GMObj = GumballMachineOne( )
-# FAILURE USE CASES
-GMObj.insert_coins(-5)
-GMObj.insert_coins(0)
-GMObj.insert_coins(15)
-GMObj.insert_coins(30)
-# SUCCESS USE CASE 
-GMObj.insert_coins(25)
-GMObj.turn_crank()
-print ("")
-print ("")
-print ("")
-print ("")
+def main():
+
+    # GUMBALL MACHINE ONE 
+    GMObj = GumballMachineOne( )
+    # FAILURE USE CASES
+    GMObj.insert_coins(-5)
+    GMObj.insert_coins(0)
+    GMObj.insert_coins(15)
+    GMObj.insert_coins(30)
+    # SUCCESS USE CASE 
+    GMObj.insert_coins(25)
+    GMObj.turn_crank()
+    print ("")
+    print ("")
+    print ("")
+    print ("")
 
 
-''' 
-GUMBALL MACHINE ONE SAMPLE OUTPUT 
-GUMBALL MACHINE ONE:
-Each Gumball Costs 25 Cents, Accepted Currency: 25 Cents Only.
-Number Of Gumballs Available: 3
-Attempting To Insert A Coin In Gumball Machine One
-No Coin Inserted! Please Insert A 25 Cents Coin.
-Attempting To Insert A Coin In Gumball Machine One
-No Coin Inserted! Please Insert A 25 Cents Coin.
-Attempting To Insert A Coin In Gumball Machine One
-Coin Value is Less Than 25 Cents. Failed To Insert The Coin.
-Attempting To Insert A Coin In Gumball Machine One
-Inserted Coin Value Is Greater Than 25 Cents. Please Insert A 25 Cents Coin.
-Attempting To Insert A Coin In Gumball Machine One
-Successfully Inserted The 25 Cents Coin
-Thanks For Your Quarter. A Gumball Was Ejected!.
-Available Gumballs: 2
-'''
+    ''' 
+    GUMBALL MACHINE ONE SAMPLE OUTPUT 
+    GUMBALL MACHINE ONE:
+    Each Gumball Costs 25 Cents, Accepted Currency: 25 Cents Only.
+    Number Of Gumballs Available: 3
+    Attempting To Insert A Coin In Gumball Machine One
+    No Coin Inserted! Please Insert A 25 Cents Coin.
+    Attempting To Insert A Coin In Gumball Machine One
+    No Coin Inserted! Please Insert A 25 Cents Coin.
+    Attempting To Insert A Coin In Gumball Machine One
+    Coin Value is Less Than 25 Cents. Failed To Insert The Coin.
+    Attempting To Insert A Coin In Gumball Machine One
+    Inserted Coin Value Is Greater Than 25 Cents. Please Insert A 25 Cents Coin.
+    Attempting To Insert A Coin In Gumball Machine One
+    Successfully Inserted The 25 Cents Coin
+    Thanks For Your Quarter. A Gumball Was Ejected!.
+    Available Gumballs: 2
+    '''
 
-# GUMBALL MACHINE TWO 
-GMObj = GumballMachineTwo( )
-# FAILURE USE CASES
-GMObj.insert_coins ( -5, -5 )
-GMObj.insert_coins ( 0, 0 ) 
-GMObj.insert_coins(15,25)
-GMObj.insert_coins(25,15)
-GMObj.insert_coins(15,30)
-GMObj.insert_coins(30,15)
-GMObj.insert_coins(30,25)
-GMObj.insert_coins(25,30)
-GMObj.insert_coins(30,30)
+    # GUMBALL MACHINE TWO 
+    GMObj = GumballMachineTwo( )
+    # FAILURE USE CASES
+    GMObj.insert_coins ( -5, -5 )
+    GMObj.insert_coins ( 0, 0 ) 
+    GMObj.insert_coins(15,25)
+    GMObj.insert_coins(25,15)
+    GMObj.insert_coins(15,30)
+    GMObj.insert_coins(30,15)
+    GMObj.insert_coins(30,25)
+    GMObj.insert_coins(25,30)
+    GMObj.insert_coins(30,30)
 
-# SUCCESS USE CASE
-GMObj.insert_coins(25,25)
-GMObj.turn_crank()
-print ("")
-print ("")
-print ("")
-print ("")
+    # SUCCESS USE CASE
+    GMObj.insert_coins(25,25)
+    GMObj.turn_crank()
+    print ("")
+    print ("")
+    print ("")
+    print ("")
 
-'''
-GUMBALL MACHINE TWO SAMPLE OUTPUT
-GUMBALL MACHINE TWO:
-Each Gumball Costs 50 Cents, Accepted Currency: 25 Cents only.
-Number Of Gumballs Available: 1
-Attempting To Insert The First Coin In Gumball Machine Two
-No Coin Inserted! Please Insert The First 25 Cents Coin.
-Attempting To Insert The Second Coin In Gumball Machine Two
-No Coin Inserted! Please Insert The Second 25 Cents Coin.
-Attempting To Insert The First Coin In Gumball Machine Two
-No Coin Inserted! Please Insert The First 25 Cents Coin.
-Attempting To Insert The Second Coin In Gumball Machine Two
-No Coin Inserted! Please Insert The Second 25 Cents Coin.
-Attempting To Insert The First Coin In Gumball Machine Two
-Coin Value is Less Than 25 Cents. Failed To Insert The Coin.
-Attempting To Insert The Second Coin In Gumball Machine Two
-Successfully Inserted The Second 25 Cents Coin
-Attempting To Insert The First Coin In Gumball Machine Two
-Successfully Inserted The First 25 Cents Coin
-Attempting To Insert The Second Coin In Gumball Machine Two
-Coin Value is Less Than 25 Cents. Failed To Insert The Second Coin.
-Attempting To Insert The First Coin In Gumball Machine Two
-Coin Value is Less Than 25 Cents. Failed To Insert The Coin.
-Attempting To Insert The Second Coin In Gumball Machine Two
-Attempting To Insert The First Coin In Gumball Machine Two
-Attempting To Insert The Second Coin In Gumball Machine Two
-Coin Value is Less Than 25 Cents. Failed To Insert The Second Coin.
-Attempting To Insert The First Coin In Gumball Machine Two
-Attempting To Insert The Second Coin In Gumball Machine Two
-Successfully Inserted The Second 25 Cents Coin
-Attempting To Insert The First Coin In Gumball Machine Two
-Successfully Inserted The First 25 Cents Coin
-Attempting To Insert The Second Coin In Gumball Machine Two
-Attempting To Insert The First Coin In Gumball Machine Two
-Attempting To Insert The Second Coin In Gumball Machine Two
-Attempting To Insert The First Coin In Gumball Machine Two
-Successfully Inserted The First 25 Cents Coin
-Attempting To Insert The Second Coin In Gumball Machine Two
-Successfully Inserted The Second 25 Cents Coin
-'''
+    '''
+    GUMBALL MACHINE TWO SAMPLE OUTPUT
+    GUMBALL MACHINE TWO:
+    Each Gumball Costs 50 Cents, Accepted Currency: 25 Cents only.
+    Number Of Gumballs Available: 1
+    Attempting To Insert The First Coin In Gumball Machine Two
+    No Coin Inserted! Please Insert The First 25 Cents Coin.
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    No Coin Inserted! Please Insert The Second 25 Cents Coin.
+    Attempting To Insert The First Coin In Gumball Machine Two
+    No Coin Inserted! Please Insert The First 25 Cents Coin.
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    No Coin Inserted! Please Insert The Second 25 Cents Coin.
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Coin Value is Less Than 25 Cents. Failed To Insert The Coin.
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Successfully Inserted The Second 25 Cents Coin
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Successfully Inserted The First 25 Cents Coin
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Coin Value is Less Than 25 Cents. Failed To Insert The Second Coin.
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Coin Value is Less Than 25 Cents. Failed To Insert The Coin.
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Coin Value is Less Than 25 Cents. Failed To Insert The Second Coin.
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Successfully Inserted The Second 25 Cents Coin
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Successfully Inserted The First 25 Cents Coin
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Attempting To Insert The First Coin In Gumball Machine Two
+    Successfully Inserted The First 25 Cents Coin
+    Attempting To Insert The Second Coin In Gumball Machine Two
+    Successfully Inserted The Second 25 Cents Coin
+    '''
 
-# GUMBALL MACHINE THREE
-GMObj = GumballMachineThree( )
+    # GUMBALL MACHINE THREE
+    GMObj = GumballMachineThree( )
 
-# FAILURE USE CASES
-GMObj.insert_coins ( -1, -2, -3 )
-GMObj.insert_coins ( 0, 0, 0 )
-GMObj.insert_coins ( -1, -2, -3 )
-GMObj.insert_coins ( 5, 15, 25 )
+    # FAILURE USE CASES
+    GMObj.insert_coins ( -1, -2, -3 )
+    GMObj.insert_coins ( 0, 0, 0 )
+    GMObj.insert_coins ( -1, -2, -3 )
+    GMObj.insert_coins ( 5, 15, 25 )
 
-# SUCCESS USE CASE
-GMObj.insert_coins ( 0, 25, 25 ) 
-GMObj.turn_crank()
-print ("")
-print ("")
-print ("")
-print ("")
+    # SUCCESS USE CASE
+    GMObj.insert_coins ( 0, 25, 25 ) 
+    GMObj.turn_crank()
+    print ("")
+    print ("")
+    print ("")
+    print ("")
 
-''' GUMBALL MACHINE THREE SAMPLE OUTPUT
-GUMBALL MACHINE THREE:
-Each Gumball Costs 50 Cents, Accepted Currency: 5, 10, 25 Cents only.
-Number Of Gumballs Available: 4
-Attempting To Insert The First Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The First Coin.
-Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
-Attempting To Insert The Second Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The Second Coin.
-Attempting To Insert The Third Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The Third Coin.
-Attempting To Insert The First Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The First Coin.
-Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
-Attempting To Insert The Second Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The Second Coin.
-Attempting To Insert The Third Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The Third Coin.
-No Coin Inserted! Please Insert The Third Coin.
-Attempting To Insert The First Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The First Coin.
-Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
-Attempting To Insert The Second Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The Second Coin.
-Attempting To Insert The Third Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The Third Coin.
-Attempting To Insert The First Coin In Gumball Machine Three
-Successfully Inserted The First Coin
-Attempting To Insert The Second Coin In Gumball Machine Three
-Successfully Inserted The Second Coin
-Attempting To Insert The Third Coin In Gumball Machine Three
-Successfully Inserted The Third Coin
-Attempting To Insert The First Coin In Gumball Machine Three
-No Coin Inserted! Please Insert The First Coin.
-Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
-Attempting To Insert The Second Coin In Gumball Machine Three
-Successfully Inserted The Second Coin
-Attempting To Insert The Third Coin In Gumball Machine Three
-Successfully Inserted The Third Coin
-Thanks For Your 50 Cents. A Gumball Was Ejected!.
-Available Gumballs: 3
-'''
+    ''' GUMBALL MACHINE THREE SAMPLE OUTPUT
+    GUMBALL MACHINE THREE:
+    Each Gumball Costs 50 Cents, Accepted Currency: 5, 10, 25 Cents only.
+    Number Of Gumballs Available: 4
+    Attempting To Insert The First Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The First Coin.
+    Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
+    Attempting To Insert The Second Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The Second Coin.
+    Attempting To Insert The Third Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The Third Coin.
+    Attempting To Insert The First Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The First Coin.
+    Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
+    Attempting To Insert The Second Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The Second Coin.
+    Attempting To Insert The Third Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The Third Coin.
+    No Coin Inserted! Please Insert The Third Coin.
+    Attempting To Insert The First Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The First Coin.
+    Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
+    Attempting To Insert The Second Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The Second Coin.
+    Attempting To Insert The Third Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The Third Coin.
+    Attempting To Insert The First Coin In Gumball Machine Three
+    Successfully Inserted The First Coin
+    Attempting To Insert The Second Coin In Gumball Machine Three
+    Successfully Inserted The Second Coin
+    Attempting To Insert The Third Coin In Gumball Machine Three
+    Successfully Inserted The Third Coin
+    Attempting To Insert The First Coin In Gumball Machine Three
+    No Coin Inserted! Please Insert The First Coin.
+    Invalid First Coin! Please Choose From 5, 15 , 25 Cents.
+    Attempting To Insert The Second Coin In Gumball Machine Three
+    Successfully Inserted The Second Coin
+    Attempting To Insert The Third Coin In Gumball Machine Three
+    Successfully Inserted The Third Coin
+    Thanks For Your 50 Cents. A Gumball Was Ejected!.
+    Available Gumballs: 3
+    '''
+
+if __name__ == "__main__": main()
